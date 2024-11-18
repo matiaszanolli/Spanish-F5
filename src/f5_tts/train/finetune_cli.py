@@ -45,7 +45,7 @@ def parse_args():
     parser.add_argument("--save_per_updates", type=int, default=10000, help="Save checkpoint every X steps")
     parser.add_argument("--last_per_steps", type=int, default=50000, help="Save last checkpoint every X steps")
     parser.add_argument("--finetune", type=bool, default=True, help="Use Finetune")
-    parser.add_argument("--pretrain", type=str, default=None, help="the path to the checkpoint")
+    parser.add_argument("--file_checkpoint_train", type=str, default=None, help="the path to the checkpoint")
     parser.add_argument(
         "--tokenizer", type=str, default="pinyin", choices=["pinyin", "char", "custom"], help="Tokenizer type"
     )
@@ -81,19 +81,19 @@ def main():
         model_cls = DiT
         model_cfg = dict(dim=1024, depth=22, heads=16, ff_mult=2, text_dim=512, conv_layers=4)
         if args.finetune:
-            if args.pretrain is None:
+            if args.file_checkpoint_train is None:
                 ckpt_path = str(cached_path("hf://SWivid/F5-TTS/F5TTS_Base/model_1200000.pt"))
             else:
-                ckpt_path = args.pretrain
+                ckpt_path = args.file_checkpoint_train
     elif args.exp_name == "E2TTS_Base":
         wandb_resume_id = None
         model_cls = UNetT
         model_cfg = dict(dim=1024, depth=24, heads=16, ff_mult=4)
         if args.finetune:
-            if args.pretrain is None:
+            if args.file_checkpoint_train is None:
                 ckpt_path = str(cached_path("hf://SWivid/E2-TTS/E2TTS_Base/model_1200000.pt"))
             else:
-                ckpt_path = args.pretrain
+                ckpt_path = args.file_checkpoint_train
 
     if args.finetune:
         if not os.path.isdir(checkpoint_path):
