@@ -641,7 +641,7 @@ def create_data_project(name, tokenizer_type):
     return gr.update(choices=project_list, value=name)
 
 
-def transcribe(file_audio, language="english"):
+def transcribe(file_audio, language="spanish"):
     global pipe
 
     if pipe is None:
@@ -1422,7 +1422,7 @@ Skip this step if you have your dataset, metadata.csv, and a folder wavs with al
             )
 
             audio_speaker = gr.File(label="Voice", type="filepath", file_count="multiple")
-            txt_lang = gr.Text(label="Language", value="English")
+            txt_lang = gr.Text(label="Language", value="Spanish")
             bt_transcribe = bt_create = gr.Button("Transcribe")
             txt_info_transcribe = gr.Text(label="Info", value="")
             bt_transcribe.click(
