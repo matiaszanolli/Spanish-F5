@@ -1560,8 +1560,8 @@ If you encounter a memory error, try reducing the batch size per GPU to a smalle
                 last_per_steps = gr.Number(label="Last per Steps", value=100)
 
             with gr.Row():
-                mixed_precision = gr.Radio(label="mixed_precision", choices=["none", "fp16", "bf16"], value="none")
-                cd_logger = gr.Radio(label="logger", choices=["wandb", "tensorboard"], value="wandb")
+                mixed_precision = gr.Radio(label="mixed_precision", choices=["none", "fp16", "bf16"], value="bf16")
+                cd_logger = gr.Radio(label="logger", choices=["wandb", "tensorboard"], value="tensorboard")
                 start_button = gr.Button("Start Training")
                 stop_button = gr.Button("Stop Training", interactive=False)
 
