@@ -1387,7 +1387,7 @@ For tutorial and updates check here (https://github.com/SWivid/F5-TTS/discussion
 
     with gr.Row():
         projects, projects_selelect = get_list_projects()
-        tokenizer_type = gr.Radio(label="Tokenizer Type", choices=["custom", "char", "custom"], value="pinyin")
+        tokenizer_type = gr.Radio(label="Tokenizer Type", choices=["pinyin", "char", "custom"], value="custom")
         project_name = gr.Textbox(label="Project Name", value="valentino")
         bt_create = gr.Button("Create a New Project")
 
