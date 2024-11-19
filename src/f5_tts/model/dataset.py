@@ -240,12 +240,7 @@ def load_dataset(
     print("Loading dataset ...")
 
     if dataset_type == "CustomDataset":
-# Verificar si el dataset_name ya contiene el sufijo
-if not dataset_name.endswith(f"_{tokenizer}"):
-    rel_data_path = str(files("f5_tts").joinpath(f"../../data/{dataset_name}_{tokenizer}"))
-else:
-    rel_data_path = str(files("f5_tts").joinpath(f"../../data/{dataset_name}"))
-
+        rel_data_path = str(files("f5_tts").joinpath(f"../../data/{dataset_name}_{tokenizer}"))
         if audio_type == "raw":
             try:
                 train_dataset = load_from_disk(f"{rel_data_path}/raw")
