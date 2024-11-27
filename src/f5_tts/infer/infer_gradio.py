@@ -45,7 +45,7 @@ vocoder = load_vocoder()
 F5TTS_model_cfg = dict(dim=1024, depth=22, heads=16, ff_mult=2, text_dim=512, conv_layers=4)
 F5TTS_ema_model = load_model(
     DiT, F5TTS_model_cfg, str(cached_path("hf://anthony0007/F5TTS/blob/main/model_43800.pt"))
-)
+) 
 
 chat_model_state = None
 chat_tokenizer_state = None
