@@ -24,7 +24,7 @@ dependencies = [
     "jieba",
     "librosa",
     "matplotlib",
-    "numpy<=1.26.4",
+    "numpy",
     "pydub",
     "pypinyin",
     "safetensors",
